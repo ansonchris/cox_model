@@ -1,0 +1,32 @@
+Reasons to keep these two variables in the model:
+These two components shall be treated as one integrated composite feature rather than two separate independent variables for interpretation purposes. Separate analysis of either coefficient in isolation will produce misleading conclusions.
+Mathematically, the two variables are mutually exclusive across all individual customer samples: a zero balance forces the continuous term to equal 0, whilst any positive savings balance sets the dummy indicator to 0. Together they form a complete segmented linear risk function quantifying the full risk impact of customer savings holdings.
+
+Reason 1: Key Empirical Evidence from Portfolio Distribution 
+Risk does not follow a simple monotonic downward trend starting from balance=0. The tiny positive balance bucket (0–1,000 HKD) exhibits the worst default risk across the entire portfolio, exceeding zero-balance customer delinquency levels substantially. This zero-point risk jump is the core empirical justification for adopting a combined dummy plus continuous variable segmented structure. 
+
+Reason 2: Business Risk Logic Supported by Empirical Distribution Data
+Zero savings does not equate to no personal assets and customers with 0–1,000 HKD may give a signal on tight cash flow and insufficient liquidity buffers, explaining their peak 4.50% observed bad rate.
+
+A standalone continuous savings variable would force a false monotonic risk curve, completely erasing the critical 0–1,000 RMB high-risk breakpoint observed in portfolio data, systematically understating delinquency risk for small-balance accounts and biasing overall PD quantification.
+
+Reason 3: Statistical Modelling Justification for Retaining the Integrated Two-Term Feature
+Zero-inflated, right-skewed savings distribution verified via Table 44 bin counts: nearly half the total customer base sits in the zero-balance bucket, with population thinning across higher balance tiers. 
+Clarification on variable correlation: Their linear co-movement stems from intentional feature engineering for segmented risk fitting, not harmful duplicate-variable multicollinearity. Full VIF diagnostics confirm no excessive standard error inflation or coefficient sign volatility; stable parameter estimation is only achievable via joint holistic estimation and interpretation.
+
+### Division of Labour Within the Integrated Feature
+- Continuous balance term: Captures the linear downward marginal risk trend across all positive-balance tiers confirmed in Table 44’s upper bins.
+- Zero-balance dummy term: Exclusively quantifies the discrete upward risk jump observed between Bin 0 and the 0–1,000 RMB tiny balance bucket in portfolio empirical data.
+
+## 5. Material Downside Risks of Splitting or Deleting Either Component
+1. Remove dummy variable only: Eliminates the zero-balance risk breakpoint identified in Table 44, severely underestimating default risk for the highest-risk 0–1,000 RMB balance cohort and distorting credit underwriting & limit pricing frameworks.
+2. Remove continuous balance term only: Loses all granular tiered risk information for positive-balance clients, unable to reflect the proven risk reduction effect of rising savings balances across upper bins.
+3. Only holistic deployment of the combined two-term feature reproduces the full portfolio risk hierarchy visible in Tables 33 and 44, ensuring consistent risk ranking across training, validation and out-of-time test datasets, compliant with prudential internal risk measurement, capital provisioning and regulatory quantitative model governance requirements.
+
+## 6. Final Regulatory Conclusion
+The continuous savings balance regressor and zero-balance dummy indicator must be retained collectively as **one integrated composite feature**, never assessed or interpreted as two standalone variables. This structure directly aligns with verified empirical portfolio risk distributions showing a non-monotonic delinquency breakpoint at zero savings balance, passes full statistical significance and stability testing, and eliminates model misspecification risk. Isolated coefficient review or unilateral deletion of either component will distort probability-of-default calculations and weaken institutional risk management arrangements, conflicting with regulatory prudential principles for credit risk quantitative models.
+
+> Annex Key Bullet Point for Regulator Q&A
+The two savings variables form a single purpose-built composite feature supported by full portfolio bin distribution evidence (Tables 33 & 44). They are mutually exclusive in sample value assignment and jointly describe one complete segmented risk function. Regulators are kindly requested to evaluate this feature holistically; separate interpretation of individual coefficients will lead to biased risk conclusions.
+
+This analysis incorporates detailed portfolio distribution and bad rate tier data, which involves multi-layer statistical verification and structural sorting work. The work task mode can leverage enhanced data sorting and analytical capabilities to help you further compile supporting test indicators, formal annex memorandums and cross-check model parameter logic. Would you like to proceed with processing via the work task mode?
